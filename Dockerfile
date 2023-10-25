@@ -6,7 +6,7 @@ COPY    /app .
 RUN apk add --no-cache go && \
     go build -o bin/hello
 
-FROM alpine:latest
+FROM scratch
 COPY --from=stage1 /app/bin/ /app/bin/
 
 CMD ["/app/bin/hello"]
